@@ -62,7 +62,7 @@ function bundleOne(moduleId, exclude) {
 		}]
 	}, function (buildResponse) {
 		const devFilePath = path.join(REPO_ROOT, 'release/dev/' + moduleId + '.js');
-		const minFilePath = path.join(REPO_ROOT, 'ms-monaco/min/vs/language/html/' + moduleId + '.js');
+		const minFilePath = path.join(REPO_ROOT, 'release/min/' + moduleId + '.js');
 		const fileContents = fs.readFileSync(devFilePath).toString();
 		console.log();
 		console.log(`Minifying ${devFilePath}...`);
@@ -72,7 +72,7 @@ function bundleOne(moduleId, exclude) {
 			}
 		});
 		console.log(`Done.`);
-		try { fs.mkdirSync(path.join(REPO_ROOT, 'ms-monaco/min/vs/language/html/')) } catch (err) { }
+		try { fs.mkdirSync(path.join(REPO_ROOT, 'release/min')) } catch (err) { }
 		fs.writeFileSync(minFilePath, BUNDLED_FILE_HEADER + result.code);
 	})
 }

@@ -1,32 +1,8 @@
-# Monaco HTML
+# Kooboo 优化版monaco
 
-HTML language plugin for the Monaco Editor. It provides the following features when editing HTML files:
-* Code completion
-* Formatting
-* Document Highlights
-* Link detection
-* Syntax highlighting
-
-Internally the HTML plugin uses the [vscode-html-languageservice](https://github.com/Microsoft/vscode-html-languageservice)
-node module, providing the implementation of the functionally listed above. The same module is also used
-in [Visual Studio Code](https://github.com/Microsoft/vscode) to power the HTML editing experience.
-
-This package is the update of the branch 'rebornix/EmbeddedLanguage'
-## Issues
-
-Please file issues concering `monaco-html` in the [`monaco-editor` repository](https://github.com/Microsoft/monaco-editor/issues).
-
-## Installing
-
-This npm module is bundled and distributed in the [monaco-editor](https://www.npmjs.com/package/monaco-editor) npm module.
-
-## Development
-
-* `git clone https://github.com/Microsoft/monaco-html`
-* `cd monaco-html`
-* `npm install .`
-* `npm run prepublishOnly`
-* open `$/monaco-html/test/index.html` in your favorite browser.
-
-## License
-[MIT](https://github.com/Microsoft/monaco-html/blob/master/LICENSE.md)
+## 构建步骤
+1. 运行此仓库的prepublishOnly生成release目录
+2. 下载microsoft/monaco-editor，并安装依赖
+3. 将此仓库生成的release目录拷贝到microsoft/monaco-editor的\node_modules\monaco-html进行覆盖
+4. 运行microsoft/monaco-editor的release
+5. 将microsoft/monaco-editor生成的release目录中的\min\vs目录拷贝到此仓库的vs目录进行替换
